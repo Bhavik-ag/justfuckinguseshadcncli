@@ -23,21 +23,49 @@ async function detectPM(): Promise<string> {
 
 async function main() {
   try {
-    console.log("🎉 Just Fucking Use shadcn\n");
+    console.log("🎉 Just Use shadcn\n");
     const pm = await detectPM();
     console.log(`📦 Using ${pm}\n`);
 
     console.log("1️⃣ Initializing shadcn/ui...");
-    await execa(pm, ["dlx", "shadcn@latest", "init", "-y"], {
-      stdio: "inherit",
-    });
+    if (pm === "npm") {
+      await execa("npx", ["shadcn@latest", "init", "-y"], {
+        stdio: "inherit",
+      });
+    } else if (pm === "pnpm") {
+      await execa("pnpm", ["dlx", "shadcn@latest", "init", "-y"], {
+        stdio: "inherit",
+      });
+    } else if (pm === "yarn") {
+      await execa("yarn", ["shadcn@latest", "init", "-y"], {
+        stdio: "inherit",
+      });
+    } else if (pm === "bun") {
+      await execa("bunx", ["--bun", "shadcn@latest", "init", "-y"], {
+        stdio: "inherit",
+      });
+    }
 
     console.log("\n2️⃣ Adding ALL components...");
-    await execa(pm, ["dlx", "shadcn@latest", "add", "-a", "-y"], {
-      stdio: "inherit",
-    });
+    if (pm === "npm") {
+      await execa("npx", ["shadcn@latest", "add", "-a", "-y"], {
+        stdio: "inherit",
+      });
+    } else if (pm === "pnpm") {
+      await execa("pnpm", ["dlx", "shadcn@latest", "add", "-a", "-y"], {
+        stdio: "inherit",
+      });
+    } else if (pm === "yarn") {
+      await execa("yarn", ["shadcn@latest", "add", "-a", "-y"], {
+        stdio: "inherit",
+      });
+    } else if (pm === "bun") {
+      await execa("bunx", ["--bun", "shadcn@latest", "add", "-a", "-y"], {
+        stdio: "inherit",
+      });
+    }
 
-    console.log("\n✅ Done! Now just fucking use shadcn 🚀");
+    console.log("\n✅ Done! Now just use shadcn 🚀");
   } catch (error) {
     console.error("❌ Error:", error);
     process.exit(1);
