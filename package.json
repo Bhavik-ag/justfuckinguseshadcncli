@@ -1,6 +1,6 @@
 {
   "name": "just-use-shadcn",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Initialize shadcn/ui and add all components with one command",
   "type": "module",
   "bin": {
