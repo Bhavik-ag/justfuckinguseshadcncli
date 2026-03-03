@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+import { execa } from "execa";
+import { existsSync } from "fs";
+import { resolve } from "path";
+import { cwd } from "process";
+
+async function detectPM(): Promise<string> {
+  const lockFiles: Record<string, string> = {
+    pnpm: "pnpm-lock.yaml",
+    yarn: "yarn.lock",
+    bun: "bun.lockb",
+    npm: "package-lock.json",
+  };
+
+  for (const [pm, lockFile] of Object.entries(lockFiles)) {
+    if (existsSync(resolve(cwd(), lockFile))) {
+      return pm;
+    }
+  }
+  return "npm";
+}
+
+async function main() {
+  try {
+    console.log("🎉 Just Fucking Use shadcn\n");
+    const pm = await detectPM();
+    console.log(`📦 Using ${pm}\n`);
+
+    console.log("1️⃣ Initializing shadcn/ui...");
+    await execa(pm, ["dlx", "shadcn@latest", "init", "-y"], {
+      stdio: "inherit",
+    });
+
+    console.log("\n2️⃣ Adding ALL components...");
+    await execa(pm, ["dlx", "shadcn@latest", "add", "-a", "-y"], {
+      stdio: "inherit",
+    });
+
+    console.log("\n✅ Done! Now just fucking use shadcn 🚀");
+  } catch (error) {
+    console.error("❌ Error:", error);
+    process.exit(1);
+  }
+}
+
+main();

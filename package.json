@@ -1,0 +1,45 @@
+{
+  "name": "just-fucking-use-shadcn",
+  "version": "1.0.0",
+  "description": "Initialize shadcn/ui and add all components with one command",
+  "type": "module",
+  "bin": {
+    "justfuckinguseshadcn": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc && chmod +x dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "shadcn",
+    "cli",
+    "ui",
+    "components",
+    "react"
+  ],
+  "author": {
+    "name": "Bhavik Agarwal",
+    "url": "https://github.com/Bhavik-ag/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bhavik-ag/justfuckinguseshadcncli"
+  },
+  "bugs": {
+    "url": "https://github.com/Bhavik-ag/justfuckinguseshadcncli/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "execa": "^6.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.6",
+    "tsx": "^4.7.0"
+  }
+}
