@@ -1,9 +1,9 @@
-# Just Fucking Use shadcn 😤
+# Just Use shadcn 😤
 
 Initialize shadcn/ui and add all components with one command.
 
 ```bash
-npx just-fucking-use-shadcn
+npx just-use-shadcn
 ```
 
 That's it. No questions asked. It will:
@@ -12,14 +12,18 @@ That's it. No questions asked. It will:
 
 Works with npm, pnpm, yarn, and bun.
 
+## Note
+
+The package is named `just-use-shadcn` on npm because npm doesn't allow profanity in package names. But the spirit is still there! 🔥
+
 ## Inspired by
 
 This CLI tool is inspired by the satirical project [justfuckinguseshadcn.com](https://justfuckinguseshadcn.com/) by [@TheOrcDev](https://github.com/TheOrcDev) - a love letter to shadcn/ui.
 
 ## Links
 
-- **Website**: https://justfuckinguseshadcn.com
-- **GitHub**: https://github.com/TheOrcDev/justfuckinguseshadcn
+- **Inspiration**: https://justfuckinguseshadcn.com
+- **Original Project**: https://github.com/TheOrcDev/justfuckinguseshadcn
 - **shadcn/ui**: https://ui.shadcn.com
 
 ## License

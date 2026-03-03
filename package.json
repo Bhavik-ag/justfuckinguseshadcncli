@@ -1,10 +1,10 @@
 {
-  "name": "just-fucking-use-shadcn",
+  "name": "just-use-shadcn",
   "version": "1.0.0",
   "description": "Initialize shadcn/ui and add all components with one command",
   "type": "module",
   "bin": {
-    "justfuckinguseshadcn": "./dist/index.js"
+    "just-use-shadcn": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [
